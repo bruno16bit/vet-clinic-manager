@@ -1,1 +1,2 @@
 class Pessoa:
+print("ola")
