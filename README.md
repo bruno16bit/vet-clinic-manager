@@ -86,7 +86,6 @@ vet-clinic-manager/
 ├── clinica/          # Clinica (regras de negócio) e Servico
 ├── usuarios/         # Usuario (abstrata), Tutor, Veterinario, Recepcionista, Administrador
 ├── testes/           # test_regras.py
-├── docs/             # casos de uso, diagrama de classes e relatório
 └── main.py           # demonstração
 ```
 
