@@ -2,7 +2,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from usuarios.recepcionista import Recepcionista
-from clinica.status_atendimento import StatusAtendimento
+from atendimentos.status_atendimento import StatusAtendimento
 
 if TYPE_CHECKING:
     # só para tipagem; ajusta os caminhos conforme a estrutura do projeto
