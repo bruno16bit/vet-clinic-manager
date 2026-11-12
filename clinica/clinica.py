@@ -1,6 +1,6 @@
 from datetime import datetime
 
-class Clinica():
+class Clinica:
     def __init__(self, nome: str):
         self.nome = nome
 
