@@ -1,76 +1,43 @@
-# Vet Clinic Manager — Veterinary Clinic Management System
+# Vet Clinic Manager — Sistema de Gestão de Clínica Veterinária
 
-An Object-Oriented **Python** system designed for the operational management of veterinary clinics, featuring role-based user access control, owner and pet registration, service catalog management, conflict-free appointment scheduling, electronic medical records, and financial reporting.
+Sistema orientado a objetos em Python para a gestão operacional de clínicas veterinárias. Reúne controle de acesso por perfil de usuário, cadastro de tutores e pets, catálogo de serviços, agendamento sem conflito de horários, prontuário eletrônico e cálculo de custos dos atendimentos.
 
-Developed as an academic project for the **Object-Oriented Programming (OOP)** course at **Instituto Federal Catarinense (IFC) — Campus Concórdia**.
+Projeto acadêmico desenvolvido na disciplina de **Programação Orientada a Objetos (POO)** do **Instituto Federal Catarinense (IFC) — Campus Concórdia**.
 
----
+## Equipe
 
-## Team Members
+- **Bruno M. Ferrari** (`@bruno16bit`)
+- **Lucas M. Rosa** (`@mayanrosa`)
 
-* **Bruno M. Ferrari** (`@bruno16bit`)
-* **Lucas M. Rosa**
+## Sumário
 
----
-
-## Applied OOP Pillars
-
-The project was architected by strictly applying the four pillars of Object-Oriented Programming:
-
-* **Abstraction:** Abstract base classes (`ABC` and `@abstractmethod`) in `Usuario` and `Atendimento`, defining mandatory contracts (`obter_permissoes()` and `calcular_custo()`) while preventing direct instantiation.
-* **Encapsulation:** Protected (`_`) and private (`__`) attributes with defensive validation via `@property` and setters (preventing invalid IDs, negative prices, malformed emails, and non-standard CPF/phone numbers).
-* **Inheritance:**
-  * User hierarchy: `Usuario` $\rightarrow$ `Tutor`, `Veterinario`, `Recepcionista` $\rightarrow$ `Administrador`.
-  * Appointment hierarchy: `Atendimento` $\rightarrow$ `ConsultaMedica` and `ProcedimentoCirurgico`.
-* **Polymorphism:** Method overriding in `calcular_custo()` (adding exam fees to medical consultations and anesthesia/surgical fees to surgical procedures) and in `obter_permissoes()` according to each user's role.
-* **Relationships (Composition, Aggregation, and Association):**
-  * *Composition:* `Atendimento` $\rightarrow$ `Prontuario` and `Tutor` $\rightarrow$ `Pet`.
-  * *Aggregation:* `Clinica` managing collections of `Veterinario`, `Tutor`, `Servico`, and `Atendimento`.
+1. [Tecnologias](#tecnologias)
+2. [Como executar](#como-executar)
+3. [Pilares da POO aplicados](#pilares-da-poo-aplicados)
+4. [Diagrama de classes](#diagrama-de-classes)
+5. [Regras de negócio](#regras-de-negócio)
+6. [Exemplo de polimorfismo](#exemplo-de-polimorfismo)
+7. [Estrutura do projeto](#estrutura-do-projeto)
+8. [Exemplo de execução](#exemplo-de-execução)
+9. [Limitações e melhorias futuras](#limitações-e-melhorias-futuras)
+10. [Licença](#licença)
 
 ---
 
-## Implemented Business Rules
+## Tecnologias
 
-* **RN01 — Schedule Conflict Prevention:** Prevents booking or rescheduling overlapping time slots for the same veterinarian or the same pet (ignoring canceled appointments).
-* **RN02 — Role-Based Access Control & Owner Privacy:** Each user role has specific permissions; pet owners (`Tutor`) can only schedule, cancel, reschedule, or view the medical history of their own pets.
-* **RN03 — Dynamic Cost Calculation:** Medical consultations add the base service price to additional exam costs; surgical procedures add the base service price to anesthesia and surgical fees.
-* **RN04 — 24-Hour Minimum Advance Notice:** Cancellations and rescheduling are only allowed at least 24 hours prior to the scheduled appointment time.
+- **Python 3.10+** (desenvolvido e testado no Python 3.14)
+- Apenas a biblioteca padrão do Python, sem dependências externas:
+  - `abc` — classes e métodos abstratos
+  - `enum` — status dos atendimentos
+  - `datetime` — datas, horários e antecedência mínima
+  - `unittest` — suíte de testes automatizados
 
 ---
 
-## Project Structure
+## Como executar
 
-```text
-vet-clinic-manager/
-│
-├── animais/
-│   ├── __init__.py
-│   └── pet.py                      # Pet entity
-│
-├── atendimentos/
-│   ├── __init__.py
-│   ├── atendimento.py              # Abstract class Atendimento
-│   ├── consulta_medica.py          # Subclass ConsultaMedica
-│   ├── procedimento_cirurgico.py   # Subclass ProcedimentoCirurgico
-│   ├── prontuario.py               # Prontuario entity (composition)
-│   └── status_atendimento.py       # Enum StatusAtendimento (AGENDADO, CONCLUIDO, CANCELADO)
-│
-├── clinica/
-│   ├── __init__.py
-│   ├── clinica.py                  # Central controller and business rules (RN01–RN04)
-│   └── servico.py                  # Servico entity
-│
-├── usuarios/
-│   ├── __init__.py
-│   ├── usuario.py                  # Abstract class Usuario
-│   ├── tutor.py                    # Subclass Tutor
-│   ├── veterinario.py              # Subclass Veterinario
-│   ├── recepcionista.py            # Subclass Recepcionista
-│   └── administrador.py            # Subclass Administrador (inherits from Recepcionista)
-│
-├── testes/
-│   └── test_regras.py              # Unit test suite with 26 tests (unittest)
-│
-├── main.py                         # Full demonstration of system flows and business rules
-├── .gitignore
-└── README.md
+### 1. Clonar o repositório
+```bash
+git clone [https://github.com/bruno16bit/vet-clinic-manager.git](https://github.com/bruno16bit/vet-clinic-manager.git)
+cd vet-clinic-manager
