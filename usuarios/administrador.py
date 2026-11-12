@@ -52,7 +52,7 @@ class Administrador(Recepcionista):
             f"Total de atendimentos: {len(atendimentos)}",
         ]
         for status, quantidade in por_status.items():
-            linhas.append(f"  {status.name.capitalize()}: {quantidade}")
+            linhas.append(f"  {status.value}: {quantidade}")
         linhas.append(f"Faturamento (concluídos): R$ {faturamento:.2f}")
         return "\n".join(linhas)
 

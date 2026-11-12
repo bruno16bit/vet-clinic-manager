@@ -47,7 +47,7 @@ class Recepcionista(Usuario):
         clinica.remover_tutor(tutor)
 
     def agendar_atendimento(self, atendimento: Atendimento, clinica: Clinica) -> bool:
-        return clinica.agendar(atendimento)
+        return clinica.agendar(atendimento, solicitante=self)
 
     def obter_permissoes(self) -> list[str]:
         return [
