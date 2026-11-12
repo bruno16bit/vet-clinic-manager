@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 
+
 class Usuario(ABC):
     """Classe base abstrata de todas as pessoas que usam o sistema."""
 
