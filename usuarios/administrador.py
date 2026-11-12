@@ -5,7 +5,7 @@ from usuarios.recepcionista import Recepcionista
 from atendimentos.status_atendimento import StatusAtendimento
 
 if TYPE_CHECKING:
-    # só para tipagem; ajusta os caminhos conforme a estrutura do projeto
+    # só para tipagem, não é importado na execução
     from clinica.servico import Servico
     from clinica.clinica import Clinica
 
