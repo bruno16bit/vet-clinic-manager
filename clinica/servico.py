@@ -1,33 +1,38 @@
 class Servico:
     def __init__(self, id: int, nome: str, preco: float):
+        # o id não muda depois de criado, por isso não tem setter
+        if not isinstance(id, int) or id <= 0:
+            raise ValueError("O id do serviço deve ser um número inteiro positivo.")
         self.__id = id
         self.nome = nome
         self.preco = preco
 
-    def obter_preco(self, preco: float):
-        self.preco = preco
+    @property
+    def id(self) -> int:
+        return self.__id
 
     @property
-    def preco(self):
-        return self.preco
-    @preco.setter
-    def preco(self, preco: float):
-        self.preco = preco
+    def nome(self) -> str:
+        return self.__nome
 
-    @property
-    def nome(self):
-        return self.nome
     @nome.setter
-    def nome(self, nome: str):
-        self.nome = nome
+    def nome(self, valor: str) -> None:
+        if not isinstance(valor, str) or not valor.strip():
+            raise ValueError("O nome do serviço não pode ser vazio.")
+        self.__nome = valor.strip()
 
     @property
-    def id(self):
-        return self.id
-    @id.setter
-    def id(self, __id: int):
-        self.__id = id
+    def preco(self) -> float:
+        return self.__preco
 
-    @property
-    def obter_preco(self, preco: float):
-        self.preco = preco
+    @preco.setter
+    def preco(self, valor: float) -> None:
+        if isinstance(valor, bool) or not isinstance(valor, (int, float)) or valor < 0:
+            raise ValueError("O preço do serviço não pode ser negativo.")
+        self.__preco = float(valor)
+
+    def obter_preco(self) -> float:
+        return self.__preco
+
+    def __str__(self) -> str:
+        return f"{self.__nome} (R$ {self.__preco:.2f})"
