@@ -1,4 +1,4 @@
-# 🐾 Vet Clinic Manager — Veterinary Clinic Management System
+# Vet Clinic Manager — Veterinary Clinic Management System
 
 An Object-Oriented **Python** system designed for the operational management of veterinary clinics, featuring role-based user access control, owner and pet registration, service catalog management, conflict-free appointment scheduling, electronic medical records, and financial reporting.
 
@@ -6,15 +6,14 @@ Developed as an academic project for the **Object-Oriented Programming (OOP)** c
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 * **Bruno M. Ferrari** (`@bruno16bit`)
 * **Lucas M. Rosa**
-* **Miguel Vitor**
 
 ---
 
-## 🏛️ Applied OOP Pillars
+## Applied OOP Pillars
 
 The project was architected by strictly applying the four pillars of Object-Oriented Programming:
 
@@ -30,7 +29,7 @@ The project was architected by strictly applying the four pillars of Object-Orie
 
 ---
 
-## 📋 Implemented Business Rules
+## Implemented Business Rules
 
 * **RN01 — Schedule Conflict Prevention:** Prevents booking or rescheduling overlapping time slots for the same veterinarian or the same pet (ignoring canceled appointments).
 * **RN02 — Role-Based Access Control & Owner Privacy:** Each user role has specific permissions; pet owners (`Tutor`) can only schedule, cancel, reschedule, or view the medical history of their own pets.
@@ -39,7 +38,7 @@ The project was architected by strictly applying the four pillars of Object-Orie
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 vet-clinic-manager/
