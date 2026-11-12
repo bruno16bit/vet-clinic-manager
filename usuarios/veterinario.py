@@ -5,7 +5,6 @@ from usuarios.usuario import Usuario
 
 if TYPE_CHECKING:
     # só para tipagem, não é importado na execução (evita import circular)
-    # ajusta o caminho para onde ficarem as classes do Lucas
     from atendimentos.atendimento import Atendimento
     from atendimentos.prontuario import Prontuario
 

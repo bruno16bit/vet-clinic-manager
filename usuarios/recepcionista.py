@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 from usuarios.usuario import Usuario
 
 if TYPE_CHECKING:
-    # só para tipagem; ajusta os caminhos conforme a estrutura do projeto
+    # só para tipagem, não é importado na execução
     from usuarios.tutor import Tutor
     from animais.pet import Pet
     from atendimentos.atendimento import Atendimento
